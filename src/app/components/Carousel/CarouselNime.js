@@ -16,36 +16,36 @@ const CarouselNime = ({ api }) => {
   }, [api.data]);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 3000,
     autoplay: true,
     autoplaySpeed: 3000,
     slidesToShow: Math.min(api.data.length, 4),
-    slidesToScroll: 4,
+    slidesToScroll: 12,
     cssEase: "linear",
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: Math.min(api.data.length, 3),
-          slidesToScroll: Math.min(api.data.length, 3),
+          slidesToShow: Math.min(api.data.length, 4),
+          slidesToScroll: 12,
           infinite: true,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: Math.min(api.data.length, 2),
-          slidesToScroll: Math.min(api.data.length, 2),
+          slidesToShow: Math.min(api.data.length, 3),
+          slidesToScroll: 12,
           initialSlide: 2,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: Math.min(api.data.length, 1),
-          slidesToScroll: Math.min(api.data.length, 1),
+          slidesToShow: Math.min(api.data.length, 2),
+          slidesToScroll: 12,
         },
       },
     ],
