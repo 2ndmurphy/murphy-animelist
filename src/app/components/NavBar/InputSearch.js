@@ -2,22 +2,32 @@
 
 import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr"
 import { useRouter } from "next/navigation"
-import { useRef } from "react"
+import { useRef, useEffect } from "react"
 
 const InputSearch = () => {
   const searchRef = useRef()
   const router = useRouter()
 
+  useEffect(() => {
+    const storedKeyword = sessionStorage.getItem("searchKeyword");
+    if (storedKeyword) {
+      searchRef.current.value = storedKeyword;
+    }
+  }, []);
+
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
-      HandleSearchInput(e)
+      handleSearchInput(e);
     }
-  }
-  const HandleSearchInput = (e) => {
-    e.preventDefault()
-    const keyword = searchRef.current.value
-    router.push(`/search/${keyword}`)
-  }
+  };
+
+  const handleSearchInput = (e) => {
+    e.preventDefault();
+    const keyword = searchRef.current.value;
+    sessionStorage.setItem("searchKeyword", keyword);
+    router.push(`/search/${keyword}`);
+  };
+
   return (
     <>
       <div className="relative">
@@ -29,8 +39,8 @@ const InputSearch = () => {
           onKeyPress={handleKeyPress}
         />
         <button 
-        className="absolute top-1.5 end-2"
-        onClick={HandleSearchInput}
+          className="absolute top-1.5 end-2"
+          onClick={handleSearchInput}
         >
           <MagnifyingGlass size={25}/>
         </button>
@@ -39,4 +49,4 @@ const InputSearch = () => {
   )
 }
 
-export default InputSearch
+export default InputSearch;

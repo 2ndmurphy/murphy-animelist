@@ -19,3 +19,9 @@ img {
 img:hover {
   scale: 102%
 }
+
+@layer utilities {
+  .slick-slide > div {
+    margin: 0 10px;
+  }
+}
