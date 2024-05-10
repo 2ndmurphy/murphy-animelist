@@ -20,7 +20,7 @@ const CarouselNime = ({ api }) => {
     infinite: true,
     speed: 12000,
     autoplay: true,
-    autoplaySpeed: 12000,
+    autoplaySpeed: 1000,
     slidesToShow: Math.min(api.data.length, 4),
     slidesToScroll: 12,
     cssEase: "linear",
