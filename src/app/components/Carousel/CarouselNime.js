@@ -16,14 +16,13 @@ const CarouselNime = ({ api }) => {
   }, [api.data]);
 
   const settings = {
-    dots: false,
-    lazyLoad: true,
+    dots: true,
     infinite: true,
     speed: 3000,
     autoplay: true,
-    autoplaySpeed: 3000, // Setel di sini agar berlaku untuk semua ukuran layar
+    autoplaySpeed: 3000,
     slidesToShow: Math.min(api.data.length, 4),
-    slidesToScroll: 1,
+    slidesToScroll: 4,
     cssEase: "linear",
     responsive: [
       {
@@ -32,7 +31,6 @@ const CarouselNime = ({ api }) => {
           slidesToShow: Math.min(api.data.length, 3),
           slidesToScroll: Math.min(api.data.length, 3),
           infinite: true,
-          dots: true,
         },
       },
       {
