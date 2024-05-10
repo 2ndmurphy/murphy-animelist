@@ -1,4 +1,4 @@
-export default function Page(p) {
+export default function Page() {
   return (
     <div>
       <h1>INI PAGE POPULER</h1>

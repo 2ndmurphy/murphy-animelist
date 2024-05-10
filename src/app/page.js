@@ -10,7 +10,7 @@ export default async function Home() {
     <>
       {/* POPULAR ANIME */}
       <section>
-        <Header linkHref="/popular" linkTitle="Lihat semua" title="PALING POPULER" />
+        <Header linkHref="/populer" linkTitle="Lihat semua" title="PALING POPULER" />
         <AnimeList api={topAnime}/>
       </section>
     </>
