@@ -1,19 +1,29 @@
-import AnimeList from "./components/AnimeList";
 import Header from "./components/AnimeList/Header";
-import CarouselNime from "./components/Carousel/CarouselNime";
+import PopularNime from "./components/Carousel/Popular";
+import RecommenNime from "./components/Carousel/RecommenNime";
 
 export default async function Home() {
-  const baseurl = "https://api.jikan.moe/v4"
-  const response = await fetch(`${baseurl}/top/anime?limit=12`)
-  const topAnime = await response.json() // popular anime
+  const baseurl = "https://api.jikan.moe/v4" // URL to API endpoint
+
+  const response1 = await fetch(`${baseurl}/top/anime?limit=12`)
+  const topAnime = await response1.json() // popular anime
+  
+  const animeId = 1 // ID of the anime
+  const response2 = await fetch(`${baseurl}/anime/${animeId}/recommendations?limit=12`)
+  const newAnime = await response2.json() // Rekomendasi anime
 
   return (
     <>
       {/* POPULAR ANIME */}
       <section>
         <Header linkHref="/populer" linkTitle="Lihat semua" title="PALING POPULER" />
-        <CarouselNime api={topAnime}/>
-        {/* <AnimeList api={topAnime}/> */}
+        <PopularNime api={topAnime} />
+      </section>
+
+      {/* RECOMMENDED ANIME */}
+      <section>
+        <Header linkHref="/recommendation" linkTitle="Lihat semua" title="REKOMENDASI" />
+        <RecommenNime api={newAnime} />
       </section>
     </>
   );

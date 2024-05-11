@@ -15,17 +15,13 @@ const InputSearch = () => {
     }
   }, []);
 
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      handleSearchInput(e);
+  const handleSearch = (event) => {
+    if (event.key == "Enter" || event.type == "click") {
+      event.preventDefault();
+      const keyword = searchRef.current.value;
+      sessionStorage.setItem("searchKeyword", keyword);
+      router.push(`/search/${keyword}`);
     }
-  };
-
-  const handleSearchInput = (e) => {
-    e.preventDefault();
-    const keyword = searchRef.current.value;
-    sessionStorage.setItem("searchKeyword", keyword);
-    router.push(`/search/${keyword}`);
   };
 
   return (
@@ -36,11 +32,11 @@ const InputSearch = () => {
           placeholder="Cari anime..." 
           className="w-full p-2 rounded"
           ref={searchRef}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleSearch}
         />
         <button 
           className="absolute top-1.5 end-2"
-          onClick={handleSearchInput}
+          onClick={handleSearch}
         >
           <MagnifyingGlass size={25}/>
         </button>
