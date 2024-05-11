@@ -9,7 +9,7 @@ export default async function Page() {
 
   return (
     <div>
-      <Header title="PALING POPULAR"/>
+      <Header title="MOST POPULAR"/>
       <div className="grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 gap-4 px-4">
         {topAnime.data.map((anime) => {
           return (

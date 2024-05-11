@@ -16,13 +16,13 @@ export default async function Home() {
     <>
       {/* POPULAR ANIME */}
       <section>
-        <Header linkHref="/populer" linkTitle="Lihat semua" title="PALING POPULER" />
+        <Header linkHref="/populer" linkTitle="See All" title="MOST POPULAR" />
         <PopularNime api={topAnime} />
       </section>
 
       {/* RECOMMENDED ANIME */}
       <section>
-        <Header linkHref="/recommendation" linkTitle="Lihat semua" title="REKOMENDASI" />
+        <Header linkHref="/recommendation" linkTitle="See All" title="RECOMMENDATIONS" />
         <RecommenNime api={newAnime} />
       </section>
     </>

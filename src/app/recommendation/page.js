@@ -8,15 +8,16 @@ export default async function Page() {
   const response = await fetch(`${baseurl}/anime/${anime_id}/recommendations`)
   const recommendedAnime = await response.json() // recommended anime
 
-  // Mengambil data gambar (image_url) dan judul (title) dari setiap elemen dalam array data
+  // Mengambil data ID(mal_id) gambar (image_url) dan judul (title) dari setiap elemen dalam array data
   const recommendedAnimeData = recommendedAnime.data.map(entry => ({
+    mal_id: entry.entry.mal_id,
     imageUrl: entry.entry.images.webp.image_url,
     title: entry.entry.title
   }));
 
   return (
     <div>
-      <Header title="REKOMENDASI"/>
+      <Header title="RECOMMENDATIONS"/>
       <div className="grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 gap-4 px-4">
         {recommendedAnimeData.map((anime) => (
           <Link href={`/${anime.mal_id}`} key={anime.mal_id} className="cursor-pointer">
