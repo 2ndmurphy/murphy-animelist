@@ -18,18 +18,18 @@ const PopularNime = ({ api }) => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 15000,
+    speed: 10000,
     autoplay: true,
     autoplaySpeed: 0,
     slidesToShow: Math.min(api.data.length, 4),
-    slidesToScroll: 12,
+    slidesToScroll:8,
     cssEase: "linear",
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: Math.min(api.data.length, 4),
-          slidesToScroll: 12,
+          slidesToScroll:8,
           infinite: true,
         },
       },
@@ -37,7 +37,7 @@ const PopularNime = ({ api }) => {
         breakpoint: 600,
         settings: {
           slidesToShow: Math.min(api.data.length, 3),
-          slidesToScroll: 12,
+          slidesToScroll:8,
           initialSlide: 2,
         },
       },
@@ -45,7 +45,7 @@ const PopularNime = ({ api }) => {
         breakpoint: 480,
         settings: {
           slidesToShow: Math.min(api.data.length, 2),
-          slidesToScroll: 12,
+          slidesToScroll:8,
         },
       },
     ],

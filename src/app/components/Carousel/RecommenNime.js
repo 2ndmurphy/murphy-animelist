@@ -21,18 +21,18 @@ const RecommenNime = ({ api }) => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 15000,
+    speed: 10000,
     autoplay: true,
     autoplaySpeed: 0,
     slidesToShow: Math.min(animeData.length, 4),
-    slidesToScroll: 12,
+    slidesToScroll: 8,
     cssEase: "linear",
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: Math.min(animeData.length, 4),
-          slidesToScroll: 12,
+          slidesToScroll: 8,
           infinite: true,
         },
       },
@@ -40,7 +40,7 @@ const RecommenNime = ({ api }) => {
         breakpoint: 600,
         settings: {
           slidesToShow: Math.min(animeData.length, 3),
-          slidesToScroll: 12,
+          slidesToScroll: 8,
           initialSlide: 2,
         },
       },
@@ -48,7 +48,7 @@ const RecommenNime = ({ api }) => {
         breakpoint: 480,
         settings: {
           slidesToShow: Math.min(animeData.length, 2),
-          slidesToScroll: 12,
+          slidesToScroll: 8,
         },
       },
     ],
