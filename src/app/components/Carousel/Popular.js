@@ -30,7 +30,6 @@ const PopularNime = ({ api }) => {
         settings: {
           slidesToShow: Math.min(api.data.length, 4),
           slidesToScroll:8,
-          infinite: true,
         },
       },
       {
@@ -57,7 +56,7 @@ const PopularNime = ({ api }) => {
         <Slider {...settings}>
           {animeData.map((anime) => (
             <Link key={anime.mal_id} href={`/${anime.mal_id}`}>
-              <div className="cursor-pointer gap-4">
+              <div className="relative cursor-pointer gap-4">
                 <Image
                   src={anime.images.webp.image_url}
                   alt="..."
@@ -66,7 +65,9 @@ const PopularNime = ({ api }) => {
                   height={350}
                   className="w-full max-h-64 object-cover"
                 />
-                <h3 className="font-bold md:text-xl text-md p-4">{anime.title}</h3>
+                <h3 className="absolute bottom-0 left-0 right-0 
+                font-bold bg-black bg-black bg-opacity-50 
+                text-white md:text-xl text-md p-4">{anime.title}</h3>
               </div>
             </Link>
           ))}

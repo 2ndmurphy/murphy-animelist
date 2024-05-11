@@ -22,7 +22,7 @@ export default async function Home() {
 
       {/* RECOMMENDED ANIME */}
       <section>
-        <Header linkHref="/" linkTitle="See All" title="RECOMMENDATIONS" />
+        <Header linkHref="/recommendation" linkTitle="See All" title="RECOMMENDATIONS" />
         <RecommenNime api={newAnime} />
       </section>
     </>
