@@ -21,7 +21,7 @@ const RecommenNime = ({ api }) => {
           title: entry.entry.title,
         }))
       );
-    }, 1000); // Set timeout to 1 second
+    }, 0); // Set timeout to 1 second
 
     return () => clearTimeout(timer);
   }, [api.data]);
@@ -39,14 +39,14 @@ const RecommenNime = ({ api }) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: Math.min(animeData.length, 4),
+          slidesToShow: 4,
           slidesToScroll: 8,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: Math.min(animeData.length, 3),
+          slidesToShow: 3,
           slidesToScroll: 8,
           initialSlide: 2,
         },
@@ -54,7 +54,7 @@ const RecommenNime = ({ api }) => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: Math.min(animeData.length, 2),
+          slidesToShow: 2,
           slidesToScroll: 8,
         },
       },

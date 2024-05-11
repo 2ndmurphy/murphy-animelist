@@ -11,9 +11,9 @@ export default async function Page() {
     <div>
       <Header title="RECOMMENDATIONS"/>
       <div className="grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 gap-4 px-4">
-        {recommendAnime.data.map((anime) => {
+        {recommendAnime.data.map((anime, index) => {
           return (
-          <Link href={`/${anime.entry.mal_id}`} 
+          <Link href={`/${anime.entry.mal_id}`} key={index} 
           className="cursor-pointer text-center text-color-primary 
           hover:text-color-accent transition-all">
             <div className="relative flex flex-col">

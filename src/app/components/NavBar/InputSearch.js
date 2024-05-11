@@ -14,12 +14,14 @@ const InputSearch = () => {
       searchRef.current.value = storedKeyword;
     }
   }, []);
-
+  
   const handleSearch = (event) => {
+
+    const keyword = searchRef.current.value;
+    if(!keyword || keyword.length < 3) return;
+
     if (event.key == "Enter" || event.type == "click") {
       event.preventDefault();
-      const keyword = searchRef.current.value;
-      sessionStorage.setItem("searchKeyword", keyword);
       router.push(`/search/${keyword}`);
     }
   };

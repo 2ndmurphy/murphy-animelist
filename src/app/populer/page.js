@@ -11,10 +11,10 @@ export default async function Page() {
     <div>
       <Header title="MOST POPULAR"/>
       <div className="grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 gap-4 px-4">
-        {topAnime.data.map((anime) => {
+        {topAnime.data.map((anime, index) => {
           return (
             <div className="relative">
-              <Link href={`/anime/${anime.mal_id}`} 
+              <Link href={`/anime/${anime.mal_id}`} key={index}
               className="cursor-pointer text-center text-color-primary 
               hover:text-color-accent transition-all">
                 <Image 
