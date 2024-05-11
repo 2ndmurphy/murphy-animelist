@@ -21,9 +21,9 @@ const RecommenNime = ({ api }) => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 10000,
+    speed: 8000,
     autoplay: true,
-    autoplaySpeed: 0,
+    autoplaySpeed: 500,
     slidesToShow: Math.min(animeData.length, 4),
     slidesToScroll: 8,
     cssEase: "linear",
@@ -58,7 +58,7 @@ const RecommenNime = ({ api }) => {
       <div className="px-4 overflow-y-hidden overflow-x-hidden">
         <Slider {...settings}>
           {animeData.map((anime) => (
-            <Link key={anime.mal_id} href={`/${anime.mal_id}`}>
+            <Link key={anime.mal_id} href={`/${anime.mal_id}`} className="text-color-primary hover:text-color-accent transition-all">
               <div className="relative cursor-pointer">
                 <Image
                   src={anime.imageUrl}
@@ -69,7 +69,8 @@ const RecommenNime = ({ api }) => {
                   className="w-full max-h-64 object-cover"
                 />
                 <h3 className="absolute bottom-0 left-0 right-0 
-                font-bold bg-black bg-opacity-50 text-white md:text-xl text-md p-4">{anime.title}</h3>
+                font-bold bg-color-secondary bg-opacity-50 
+                md:text-xl text-md p-4">{anime.title}</h3>
               </div>
             </Link>
           ))}

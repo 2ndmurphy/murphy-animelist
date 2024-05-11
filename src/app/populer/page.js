@@ -14,7 +14,9 @@ export default async function Page() {
         {topAnime.data.map((anime) => {
           return (
             <div className="relative">
-              <Link href={`/anime/${anime.mal_id}`} className="cursor-pointer">
+              <Link href={`/anime/${anime.mal_id}`} 
+              className="cursor-pointer text-center text-color-primary 
+              hover:text-color-accent transition-all">
                 <Image 
                   src={anime.images.webp.image_url} 
                   alt="..." 
@@ -24,8 +26,9 @@ export default async function Page() {
                   className="w-full max-h-64 object-cover"
                 />
                 <h3 className="absolute bottom-0 left-0 right-0 
-                bg-black bg-opacity-50 font-bold md:text-xl 
-                text-md text-white text-center p-4">{anime.title}</h3>
+                bg-color-secondary bg-opacity-50 font-bold md:text-xl 
+                text-md text-white text-center p-4 md:opacity-0 lg:opacity-0
+                transition-opacity duration-300">{anime.title}</h3>
               </Link>
             </div>
           )
