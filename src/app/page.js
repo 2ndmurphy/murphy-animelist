@@ -24,7 +24,7 @@ export default async function Home() {
       <section>
         <Header linkHref="/recommendation" linkTitle="See All" title="RECOMMENDATIONS" />
         <RecommenNime api={newAnime} />
-      </section>
+      </section> 
     </>
   );
 }
