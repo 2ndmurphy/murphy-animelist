@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import Header from "./components/AnimeList/Header";
 import PopularNime from "./components/Carousel/Popular";
 import RecommenNime from "./components/Carousel/RecommenNime";
+import loading from "./loading";
 
 export default async function Home() {
   const baseurl = "https://api.jikan.moe/v4" // URL to API endpoint
@@ -14,17 +16,21 @@ export default async function Home() {
 
   return (
     <>
-      {/* POPULAR ANIME */}
-      <section>
-        <Header linkHref="/populer" linkTitle="See All" title="MOST POPULAR" />
-        <PopularNime api={topAnime} />
-      </section>
+      <Suspense fallback={
+        <div>{<loading/>}</div>
+      }>
+        {/* POPULAR ANIME */}
+        <section>
+          <Header linkHref="/populer" linkTitle="See All" title="MOST POPULAR" />
+          <PopularNime api={topAnime} />
+        </section>
 
-      {/* RECOMMENDED ANIME */}
-      <section>
-        <Header linkHref="/recommendation" linkTitle="See All" title="RECOMMENDATIONS" />
-        <RecommenNime api={newAnime} />
-      </section> 
+        {/* RECOMMENDED ANIME */}
+        <section>
+          <Header linkHref="/recommendation" linkTitle="See All" title="RECOMMENDATIONS" />
+          <RecommenNime api={newAnime} />
+        </section> 
+      </Suspense>
     </>
   );
 }

@@ -1,15 +1,24 @@
 import Link from "next/link"
 import Image from "next/image"
-import Header from "../components/AnimeList/Header"
+import loading from "../loading"
+import { Suspense } from "react"
+import HeaderBanner from "../components/utilities/HeaderBanner"
+
 
 export default async function Page() {
   const baseurl = "https://api.jikan.moe/v4"
+  
   const response = await fetch(`${baseurl}/anime/1/recommendations`)
-  const recommendAnime = await response.json() // popular anime
+  const recommendAnime = await response.json() // recommendations anime
 
   return (
     <div>
-      <Header title="RECOMMENDATIONS"/>
+      <HeaderBanner title="RECOMMENDATIONS"/>
+      <Suspense fallback={
+        <div>{<loading/>}</div>
+      }>
+
+      </Suspense>
       <div className="grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 gap-4 px-4">
         {recommendAnime.data.map((anime, index) => {
           return (

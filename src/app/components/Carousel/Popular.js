@@ -3,10 +3,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
+import loading from "@/app/loading";
 
 const PopularNime = ({ api }) => {
   const [animeData, setAnimeData] = useState([]);
@@ -23,10 +20,12 @@ const PopularNime = ({ api }) => {
 
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={
+      <div>{<loading/>}</div>
+    }>
       {!isLoading && (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
-          {animeData.map((anime) => (
+          {animeData?.map((anime) => (
             <Link
               key={anime.mal_id}
               href={`/${anime.mal_id}`}
