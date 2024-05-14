@@ -3,7 +3,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import loading from "@/app/loading";
+import Loading from "../../loading.js";
 
 const PopularNime = ({ api }) => {
   const [animeData, setAnimeData] = useState([]);
@@ -21,14 +21,14 @@ const PopularNime = ({ api }) => {
 
   return (
     <Suspense fallback={
-      <div>{<loading/>}</div>
+      <div>{<Loading/>}</div>
     }>
       {!isLoading && (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
           {animeData?.map((anime) => (
             <Link
               key={anime.mal_id}
-              href={`/${anime.mal_id}`}
+              href={`/anime/${anime.mal_id}`}
               className="text-color-primary hover:text-color-accent transition-all"
             >
               <div className="relative cursor-pointer gap-4">

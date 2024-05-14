@@ -7,7 +7,7 @@ const AnimeList = async({ api }) => {
       {api.data?.map((anime) => {
         return (
           <div className="relative">
-            <Link href={`/${anime.mal_id}`} key={anime.mal_id} 
+            <Link href={`/anime/${anime.mal_id}`} key={anime.mal_id} 
             className="cursor-pointer text-color-primary 
             hover:text-color-accent transition-all text-center">
               <Image 

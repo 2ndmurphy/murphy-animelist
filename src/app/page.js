@@ -2,22 +2,18 @@ import { Suspense } from "react";
 import Header from "./components/AnimeList/Header";
 import PopularNime from "./components/Carousel/Popular";
 import RecommenNime from "./components/Carousel/RecommenNime";
-import loading from "./loading";
+import Loading from "./loading";
+import { getAnimeResponse } from "./libs/api";
+
 
 export default async function Home() {
-  const baseurl = "https://api.jikan.moe/v4" // URL to API endpoint
-
-  const response1 = await fetch(`${baseurl}/top/anime?limit=8`)
-  const topAnime = await response1.json() // popular anime
-  
-  const animeId = 1 
-  const response2 = await fetch(`${baseurl}/anime/${animeId}/recommendations?limit=8`)
-  const newAnime = await response2.json() // Rekomendasi anime
+  const topAnime = await getAnimeResponse("top/anime", "limit=8")
+  const recommended = await getAnimeResponse("anime/1/recommendations", "limit=8")
 
   return (
     <>
       <Suspense fallback={
-        <div>{<loading/>}</div>
+        <div>{<Loading/>}</div>
       }>
         {/* POPULAR ANIME */}
         <section>
@@ -28,7 +24,7 @@ export default async function Home() {
         {/* RECOMMENDED ANIME */}
         <section>
           <Header linkHref="/recommendation" linkTitle="See All" title="RECOMMENDATIONS" />
-          <RecommenNime api={newAnime} />
+          <RecommenNime api={recommended} />
         </section> 
       </Suspense>
     </>
