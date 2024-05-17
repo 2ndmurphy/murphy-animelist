@@ -33,3 +33,24 @@ img:hover {
   animation:s3 1s infinite linear;
 }
 @keyframes s3 {to{transform: rotate(1turn)}}
+
+/* custom.css */
+.custom-scrollbar {
+  scrollbar-width: thin; /* Untuk Firefox */
+  scrollbar-color: #3490dc #e2e8f0; /* thumb warna #3490dc dan track warna #e2e8f0 */
+}
+
+/* WebKit Browsers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px; /* Lebar scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #e2e8f0; /* Warna background track scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #3490dc; /* Warna thumb scrollbar */
+  border-radius: 10px; /* Membuat thumb menjadi bulat */
+  border: 3px solid #e2e8f0; /* Memberi ruang di sekitar thumb */
+}
