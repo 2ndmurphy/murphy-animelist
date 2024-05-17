@@ -1,9 +1,9 @@
 import { Suspense } from "react";
+import { getAnimeResponse } from "./libs/api";
 import Header from "./components/AnimeList/Header";
 import PopularNime from "./components/Carousel/Popular";
 import RecommenNime from "./components/Carousel/RecommenNime";
 import Loading from "./loading";
-import { getAnimeResponse } from "./libs/api";
 
 
 export default async function Home() {
